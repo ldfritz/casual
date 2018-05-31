@@ -2599,7 +2599,7 @@ $packages["main"] = (function() {
 		var count, doneElem, remaining, todoElem;
 		doneElem = $global.document.querySelector($externalize(".progress-done", $String));
 		todoElem = $global.document.querySelector($externalize(".progress-todo", $String));
-		if (!((($parseInt(doneElem.textContent) >> 0) === count))) {
+		if (count > 0 && count < 50) {
 			remaining = 50 - count >> 0;
 			doneElem.style[$externalize("flex-grow", $String)] = count;
 			doneElem.style.width = count;
@@ -2607,6 +2607,9 @@ $packages["main"] = (function() {
 			todoElem.style[$externalize("flex-grow", $String)] = remaining;
 			todoElem.style.width = remaining;
 			todoElem.textContent = $externalize(strconv.Itoa(remaining), $String);
+		}
+		if (count === 50) {
+			doneElem.textContent = $externalize("Winner!  You rock!", $String);
 		}
 	};
 	restartGame = function() {

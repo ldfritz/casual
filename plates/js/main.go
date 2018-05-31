@@ -84,7 +84,7 @@ func updateProgressBar(count int) {
 	doneElem := js.Global.Get("document").Call("querySelector", ".progress-done")
 	todoElem := js.Global.Get("document").Call("querySelector", ".progress-todo")
 
-	if doneElem.Get("textContent").Int() != count {
+	if count > 0 && count < 50 {
 		remaining := 50 - count
 		doneElem.Get("style").Set("flex-grow", count)
 		doneElem.Get("style").Set("width", count)
@@ -92,6 +92,9 @@ func updateProgressBar(count int) {
 		todoElem.Get("style").Set("flex-grow", remaining)
 		todoElem.Get("style").Set("width", remaining)
 		todoElem.Set("textContent", strconv.Itoa(remaining))
+	}
+	if count == 50 {
+		doneElem.Set("textContent", "Winner!  You rock!")
 	}
 }
 
