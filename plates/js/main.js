@@ -2599,7 +2599,7 @@ $packages["main"] = (function() {
 		var count, doneElem, remaining, todoElem;
 		doneElem = $global.document.querySelector($externalize(".progress-done", $String));
 		todoElem = $global.document.querySelector($externalize(".progress-todo", $String));
-		if (count > 0 && count < 50) {
+		if (count >= 0 && count <= 50) {
 			remaining = 50 - count >> 0;
 			doneElem.style[$externalize("flex-grow", $String)] = count;
 			doneElem.style.width = count;

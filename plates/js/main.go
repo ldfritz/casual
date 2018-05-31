@@ -84,7 +84,7 @@ func updateProgressBar(count int) {
 	doneElem := js.Global.Get("document").Call("querySelector", ".progress-done")
 	todoElem := js.Global.Get("document").Call("querySelector", ".progress-todo")
 
-	if count > 0 && count < 50 {
+	if count >= 0 && count <= 50 {
 		remaining := 50 - count
 		doneElem.Get("style").Set("flex-grow", count)
 		doneElem.Get("style").Set("width", count)
