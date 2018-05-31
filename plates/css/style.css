@@ -1,0 +1,32 @@
+#content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.progress {
+  display: flex;
+  font-size: 1.5rem;
+  height: 2rem;
+  width: 100%;
+}
+
+.progress-todo {
+  background-color: #add;
+}
+
+.progress-done {
+  background-color: #dad;
+}
+
+.us_state {
+  background-color: #add;
+  border-radius: 5px;
+  font-size: 2rem;
+  margin: 0.25rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.found {
+  background-color: #dad;
+  order: 51;
+}
